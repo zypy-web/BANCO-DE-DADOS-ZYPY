@@ -11,13 +11,13 @@ permissions:
 jobs:
   populate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Collect and append direct KaBuM product URLs
+      - name: Collect direct product URLs from KaBuM sitemap and listing pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/populate_kabum_links.py
